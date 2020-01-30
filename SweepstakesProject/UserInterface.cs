@@ -26,8 +26,10 @@ namespace SweepstakesProject
                     break;
                 case ("Manager"):
                     Console.WriteLine("Stack or queue?");
-
                     break;
+                case ("Sweepstake"):
+                    Console.WriteLine("Enter name for sweepstake");
+                    break;                    
             }
             string input = Console.ReadLine();
             return input;
