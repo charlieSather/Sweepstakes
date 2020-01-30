@@ -24,6 +24,10 @@ namespace SweepstakesProject
                 case ("Number"):
                     Console.WriteLine("Enter registration Number:");
                     break;
+                case ("Manager"):
+                    Console.WriteLine("Stack or queue?");
+
+                    break;
             }
             string input = Console.ReadLine();
             return input;
