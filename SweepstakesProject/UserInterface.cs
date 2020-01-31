@@ -33,7 +33,7 @@ namespace SweepstakesProject
             return input;
         }
 
-        public static (string, string, string, int) GetContestant()
+        public static (string, string, string, int) GetContestantInfo()
         {
             string firstName = GetName("first");
             string lastName = GetName("last");
