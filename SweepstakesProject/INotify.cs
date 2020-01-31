@@ -9,5 +9,6 @@ namespace SweepstakesProject
     interface INotify
     {
         void Notify(string winner);
+        void Email(string winner, string sweepstakes);
     }
 }

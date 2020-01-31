@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace SweepstakesProject
 {
@@ -38,6 +41,38 @@ namespace SweepstakesProject
             {
                 Console.WriteLine("Oh No!! You lost :(");
             }
+        }
+        public void Email(string winner, string sweepstakes)
+        {
+            var message = new MimeMessage();
+
+            message.From.Add(new MailboxAddress($"{sweepstakes}", $"{sweepstakes}@yahoo.com"));
+            message.To.Add(new MailboxAddress($"{FirstName} {LastName}", $"{EmailAddress}"));
+
+            message.Subject = ("Sweepstakes Results");
+
+            message.Body = new TextPart("plain")
+            {
+                Text = $@"Dear {FirstName} {LastName},
+We are pleased to announce that {winner} has won this year's {sweepstakes} sweepstakes!!!"
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                string[] splitAt = EmailAddress.Split('@');
+                string[] splitWebsite = splitAt[1].Split('.');
+
+                client.Connect($"smtp.{splitWebsite[0]}.{splitWebsite[1]}", 587, false);
+
+                //ignore authentication for now
+
+                client.Send(message);
+                client.Disconnect(true);
+            };
+
+
         }
     }
 }
