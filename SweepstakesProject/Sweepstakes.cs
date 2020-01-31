@@ -55,25 +55,25 @@ We are pleased to announce that you have won this year's {name} sweepstakes. Con
             //    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             //    client.Connect("")
-            //}
-
-
-
-
-
-
-
-
-
+            //}                                                                
 
 
 
                 return winner;
         }
 
+        public void NotifyContestants(string winner)
+        {
+            foreach(KeyValuePair<int,Contestant> kvp in contestants)
+            {
+                kvp.Value.Notify(winner);
+            }
+        }
+
         public void PrintContestantInfo(Contestant contestant)
         {
             Console.WriteLine($"{contestant.FirstName} {contestant.LastName},Email: {contestant.EmailAddress}, #{contestant.RegistrationNumber}");
         }
+
     }
 }
