@@ -34,5 +34,19 @@ namespace SweepstakesProject
             string input = Console.ReadLine();
             return input;
         }
+
+        public static MarketingFirm GetMarketingFirm()
+        {
+            Console.WriteLine("Choose manager type:\n1: Stack\n2:Queue");
+            switch (Console.ReadLine().ToLower())
+            {
+                case ("1"):
+                    return new MarketingFirm(new SweepstakesStackManager());
+                case ("2"):
+                    return new MarketingFirm(new SweepstakesQueueManager());
+                default:
+                    return GetMarketingFirm();
+            }
+        }
     }
 }

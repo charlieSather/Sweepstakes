@@ -62,6 +62,7 @@ We are pleased to announce that you have won this year's {name} sweepstakes. Con
                 return winner;
         }
 
+
         public void NotifyContestants(string winner)
         {
             foreach(KeyValuePair<int,Contestant> kvp in contestants)
