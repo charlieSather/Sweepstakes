@@ -23,13 +23,13 @@ namespace SweepstakesProject
         int registrationNumber;
         public int RegistrationNumber { get { return registrationNumber; } }
 
-        //public Contestant(string FirstName,string LastName, string EmailAddress, int RegistrationNumber)
-        //{
-        //    this.firstname = FirstName;
-        //    this.lastname = LastName;
-        //    this.emailAddress = EmailAddress;
-        //    this.registrationNumber = RegistrationNumber;
-        //}
+        public Contestant(string FirstName, string LastName, string EmailAddress, int RegistrationNumber)
+        {
+            this.firstname = FirstName;
+            this.lastname = LastName;
+            this.emailAddress = EmailAddress;
+            this.registrationNumber = RegistrationNumber;
+        }
 
         public void Notify(string winner)
         {
@@ -42,6 +42,7 @@ namespace SweepstakesProject
                 Console.WriteLine("Oh No!! You lost :(");
             }
         }
+
         public void Email(string winner, string sweepstakes)
         {
             var message = new MimeMessage();
@@ -67,7 +68,6 @@ We are pleased to announce that {winner} has won this year's {sweepstakes} sweep
                 client.Connect($"smtp.{splitWebsite[0]}.{splitWebsite[1]}", 587, false);
 
                 client.Authenticate("cmangia12@gmail.com", "ChuckMan!2121:");
-                //ignore authentication for now
 
                 client.Send(message);
                 client.Disconnect(true);

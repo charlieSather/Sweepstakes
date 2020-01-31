@@ -12,11 +12,6 @@ namespace SweepstakesProject
         {
             Simulation sim = new Simulation();
             sim.CreateMarketingFirmWithManager();
-
-
-            Contestant Charlie = new Contestant("Charlie", "S", "charliesather18@gmail.com", 1);
-            Charlie.Email("David S", "Grand");
-
         }
     }
 }
