@@ -23,20 +23,17 @@ namespace SweepstakesProject
             this.name = name;
             contestants = new Dictionary<int, Contestant>();
         }
-
+        
         public void RegisterContestant(Contestant contestant)
         {
-            contestants.Add(contestant.RegistrationNumber, contestant);
+            contestants.Add(contestants.Count, contestant);
         }
 
         public Contestant PickWinner()
         {
-            Random rand = new Random();
+            Random rand = new Random();                       
 
-            List<int> keys = new List<int>();
-            keys.AddRange(contestants.Keys);
-
-            Contestant winner = contestants[keys[rand.Next(0, keys.Count)]];
+            Contestant winner = contestants[rand.Next(0, contestants.Count)];
 
             var message = new MimeMessage();
 
@@ -55,7 +52,7 @@ We are pleased to announce that you have won this year's {name} sweepstakes. Con
             //    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             //    client.Connect("")
-            //}                                                                
+            //}                                                              
 
 
 
@@ -65,9 +62,9 @@ We are pleased to announce that you have won this year's {name} sweepstakes. Con
 
         public void NotifyContestants(string winner)
         {
-            foreach(KeyValuePair<int,Contestant> kvp in contestants)
+            foreach(Contestant contestant in contestants.Values)
             {
-                kvp.Value.Notify(winner);
+                contestant.Notify(winner);
             }
         }
 
