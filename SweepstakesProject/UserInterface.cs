@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace SweepstakesProject
 {
@@ -32,15 +33,64 @@ namespace SweepstakesProject
             return input;
         }
 
-        public static MarketingFirm GetMarketingFirm()
+        public static (string, string, string, int) GetContestant()
+        {
+            string firstName = GetName("first");
+            string lastName = GetName("last");
+            string email = GetEmail(new Regex(@"^\w+@\w+(.com)$"));
+            int registrationNumber = GetRegistrationNumber(new Regex(@"^\d{1-3}$"));
+
+            return (firstName, lastName, email, registrationNumber);
+        }
+
+        private static string GetName(string type)
+        {
+            Console.WriteLine($"Please enter your {type} name");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case (""):
+                    return GetName(type);
+                default:
+                    return input;
+            }
+        }
+        private static string GetEmail(Regex reg)
+        {
+            Console.WriteLine($"Please enter your email Address");
+            string input = Console.ReadLine();
+            if (reg.IsMatch(input))
+            {
+                return input;
+            }
+            else
+            {
+                return GetEmail(reg);
+            }
+        }
+        private static int GetRegistrationNumber(Regex reg)
+        {
+            Console.WriteLine($"Please enter your email Address");
+            string input = Console.ReadLine();
+            if (reg.IsMatch(input))
+            {
+                return Int32.Parse(input);
+            }
+            else
+            {
+                return GetRegistrationNumber(reg);
+            }
+        }
+
+        public static string GetMarketingFirm()
         {
             Console.WriteLine("Choose manager type:\n1: Stack\n2:Queue");
             switch (Console.ReadLine().ToLower())
             {
                 case ("1"):
-                    return new MarketingFirm(new SweepstakesStackManager());
+                    return "stack";
                 case ("2"):
-                    return new MarketingFirm(new SweepstakesQueueManager());
+                    return "queue";
                 default:
                     return GetMarketingFirm();
             }

@@ -11,7 +11,17 @@ namespace SweepstakesProject
         MarketingFirm mf;
         public void CreateMarketingFirmWithManager()
         {
-            mf = UserInterface.GetMarketingFirm();
+            //string input = UserInterface.GetMarketingFirm();
+
+            switch (UserInterface.GetMarketingFirm())
+            {
+                case ("stack"):
+                     mf = new MarketingFirm(new SweepstakesStackManager());
+                    break;
+                case ("queue"):
+                    mf = new MarketingFirm(new SweepstakesQueueManager());
+                    break;
+            }
         }
     }
 }
