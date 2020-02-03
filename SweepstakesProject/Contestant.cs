@@ -72,7 +72,11 @@ We are pleased to announce that {winner} has won this year's {sweepstakes} sweep
                 client.Send(message);
                 client.Disconnect(true);
             };
+        }
 
+        public void AssignRegistrationNumber(int regNumber)
+        {
+            registrationNumber = regNumber;
         }
     }
 }

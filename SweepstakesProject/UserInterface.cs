@@ -33,14 +33,13 @@ namespace SweepstakesProject
             return input;
         }
 
-        public static (string, string, string, int) GetContestantInfo()
+        public static (string, string, string) GetContestantInfo()
         {
             string firstName = GetName("first");
             string lastName = GetName("last");
             string email = GetEmail(new Regex(@"^\w+@\w+(.com)$"));
-            int registrationNumber = GetRegistrationNumber(new Regex(@"^\d{1-3}$"));
 
-            return (firstName, lastName, email, registrationNumber);
+            return (firstName, lastName, email);
         }
 
         private static string GetName(string type)
@@ -68,20 +67,7 @@ namespace SweepstakesProject
                 return GetEmail(reg);
             }
         }
-        private static int GetRegistrationNumber(Regex reg)
-        {
-            Console.WriteLine($"Please enter your email Address");
-            string input = Console.ReadLine();
-            if (reg.IsMatch(input))
-            {
-                return Int32.Parse(input);
-            }
-            else
-            {
-                return GetRegistrationNumber(reg);
-            }
-        }
-
+        
         public static string GetMarketingFirm()
         {
             Console.WriteLine("Choose manager type:\n1: Stack\n2:Queue");
