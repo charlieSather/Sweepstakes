@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace SweepstakesProject
 {
-    class Simulation
+    public class Simulation
     {
         MarketingFirm mf;
         public void CreateMarketingFirmWithManager()
         {
-            //string input = UserInterface.GetMarketingFirm();
-
             switch (UserInterface.GetMarketingFirm())
             {
                 case ("stack"):

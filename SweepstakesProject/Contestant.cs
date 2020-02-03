@@ -9,7 +9,7 @@ using MimeKit;
 
 namespace SweepstakesProject
 {
-    class Contestant : INotify
+    public class Contestant : INotify
     {
         string firstname;
         public string FirstName { get { return firstname; } }

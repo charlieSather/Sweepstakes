@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SweepstakesProject
 {
-    class MarketingFirm
+    public class MarketingFirm
     {
-        ISweepstakesManager _manager;
+        public ISweepstakesManager _manager;
 
         public MarketingFirm(ISweepstakesManager manager)
         {

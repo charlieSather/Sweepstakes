@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace SweepstakesProject
 {
-    static class UserInterface
+    public static class UserInterface
     {
         public static string GetUserInputFor(string prompt)
         {
