@@ -13,24 +13,24 @@ namespace SweepstakesProject
             Simulation sim = new Simulation();
             sim.CreateMarketingFirmWithManager();
 
-            Sweepstakes sweepstakes = new Sweepstakes("Grand");
+            //Sweepstakes sweepstakes = new Sweepstakes("Grand");
 
-            sweepstakes.RegisterContestant(new Contestant("Charlie", "Sather", "halo@uwm.edu"));
-            sweepstakes.RegisterContestant(new Contestant("Dave", "Steinhafel", "dman@gmail.com"));
-            sweepstakes.RegisterContestant(new Contestant("Sprite", "M", "sodaCrusher@gmail.com"));
-            sweepstakes.RegisterContestant(new Contestant("Cole", "K", "policeNeverLose@gmail.com"));
+            //sweepstakes.RegisterContestant(new Contestant("Charlie", "Sather", "halo@uwm.edu"));
+            //sweepstakes.RegisterContestant(new Contestant("Dave", "Steinhafel", "dman@gmail.com"));
+            //sweepstakes.RegisterContestant(new Contestant("Sprite", "M", "sodaCrusher@gmail.com"));
+            //sweepstakes.RegisterContestant(new Contestant("Cole", "K", "policeNeverLose@gmail.com"));
             
 
-            foreach (Contestant contestant in sweepstakes.getDict().Values)
-            {
-                sweepstakes.PrintContestantInfo(contestant);
-            }
+            //foreach (Contestant contestant in sweepstakes.getDict().Values)
+            //{
+            //    sweepstakes.PrintContestantInfo(contestant);
+            //}
 
-            Console.WriteLine("\n");
+            //Console.WriteLine("\n");
 
-            sweepstakes.NotifyContestants(sweepstakes.PickWinner());
+            //sweepstakes.NotifyContestants(sweepstakes.PickWinner());
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
 
 

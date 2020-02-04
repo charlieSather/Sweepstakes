@@ -38,7 +38,7 @@ namespace SweepstakesProject
             foreach (INotify contestant in contestants.Values)
             {
                 contestant.Notify(winner);
-                //contestant.Email(winner, name);
+                contestant.Email(winner, name);
             }
         }
 
@@ -47,10 +47,10 @@ namespace SweepstakesProject
             Console.WriteLine($"{contestant.FirstName} {contestant.LastName},Email: {contestant.EmailAddress}, #{contestant.RegistrationNumber}");
         }
 
-        public Dictionary<int,Contestant> getDict()
-        {
-            return contestants;
-        }
+        //public Dictionary<int,Contestant> getDict()
+        //{
+        //    return contestants;
+        //}
 
     }
 }
