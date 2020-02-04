@@ -7,13 +7,6 @@ namespace SweepstakesTest
     [TestClass]
     public class SweepstakesTesting
     {
-        [TestMethod]
-        public void PickWinner_TestPickkingWinner()
-        {
-
-
-            
-        }
 
         [TestMethod]
         public void RegisterContestant_AddThreeContestantsWithStack()
@@ -22,9 +15,9 @@ namespace SweepstakesTest
 
             Sweepstakes sweepstakes = new Sweepstakes("Grand");
 
-            sweepstakes.RegisterContestant(new Contestant("Charlie", "S", "halo1@yahoo.com", 1));
-            sweepstakes.RegisterContestant(new Contestant("Craig", "S","halo2@yahoo.com", 2));
-            sweepstakes.RegisterContestant(new Contestant("Chris", "S", "halo3@yahoo.com", 3));
+            sweepstakes.RegisterContestant(new Contestant("Charlie", "S", "halo1@yahoo.com"));
+            sweepstakes.RegisterContestant(new Contestant("Craig", "S", "halo2@yahoo.com"));
+            sweepstakes.RegisterContestant(new Contestant("Chris", "S", "halo3@yahoo.com"));
 
             mf._manager.InsertSweepstakes(sweepstakes);
 
@@ -44,19 +37,28 @@ namespace SweepstakesTest
 
             Sweepstakes sweepstakes = new Sweepstakes("Grand");
 
-            sweepstakes.RegisterContestant(new Contestant("Charlie", "S", "halo1@yahoo.com", 1));
-            sweepstakes.RegisterContestant(new Contestant("Craig", "S", "halo2@yahoo.com", 2));
-            sweepstakes.RegisterContestant(new Contestant("Chris", "S", "halo3@yahoo.com", 3));
+            sweepstakes.RegisterContestant(new Contestant("Charlie", "S", "halo1@yahoo.com"));
+            sweepstakes.RegisterContestant(new Contestant("Craig", "S", "halo2@yahoo.com"));
+            sweepstakes.RegisterContestant(new Contestant("Chris", "S", "halo3@yahoo.com"));
 
             mf._manager.InsertSweepstakes(sweepstakes);
 
             Sweepstakes sweepstakes2 = new Sweepstakes("Grand2");
             mf._manager.InsertSweepstakes(sweepstakes2);
 
-
-
-            Assert.AreEqual("Grand",mf._manager.GetSweepstakes().Name) ;
+            Assert.AreEqual("Grand", mf._manager.GetSweepstakes().Name);
         }
+        public void PickWinner_UsingQueue()
+        {
+            Sweepstakes sweepstakes = new Sweepstakes("Grand");
+            sweepstakes.RegisterContestant(new Contestant("Charlie", "S", "halo1@yahoo.com"));
+
+            Assert.AreEqual("Charlie",sweepstakes.PickWinner().FirstName);
+
+        }
+
+
+
 
     }
 }

@@ -20,6 +20,5 @@ namespace SweepstakesProject
             _manager.InsertSweepstakes(new Sweepstakes(UserInterface.GetUserInputFor("Sweepstake")));
         }
 
-
     }
 }

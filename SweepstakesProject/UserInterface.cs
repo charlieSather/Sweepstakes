@@ -70,7 +70,7 @@ namespace SweepstakesProject
         
         public static string GetMarketingFirm()
         {
-            Console.WriteLine("Choose manager type:\n1: Stack\n2:Queue");
+            Console.WriteLine("Choose manager type:\n1: Stack\n2: Queue");
             switch (Console.ReadLine().ToLower())
             {
                 case ("1"):

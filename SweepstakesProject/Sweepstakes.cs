@@ -33,18 +33,23 @@ namespace SweepstakesProject
             return contestants[rand.Next(0, contestants.Count)];
         }
 
-        public void NotifyContestants(string winner)
+        public void NotifyContestants(Contestant winner)
         {
-            foreach (Contestant contestant in contestants.Values)
+            foreach (INotify contestant in contestants.Values)
             {
                 contestant.Notify(winner);
-                contestant.Email(winner, name);
+                //contestant.Email(winner, name);
             }
         }
 
         public void PrintContestantInfo(Contestant contestant)
         {
             Console.WriteLine($"{contestant.FirstName} {contestant.LastName},Email: {contestant.EmailAddress}, #{contestant.RegistrationNumber}");
+        }
+
+        public Dictionary<int,Contestant> getDict()
+        {
+            return contestants;
         }
 
     }
